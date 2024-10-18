@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/splash_screen.dart';
-import 'home_screen.dart';
+import 'package:graduation_project/splash_screen/splash_screen.dart';
+import 'login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: SplashScreen.routeName,
       routes: {
         SplashScreen.routeName : (context) => const SplashScreen() ,
-        HomeScreen.routeName : (context) => const HomeScreen(),
+        LoginScreen.routeName : (context) => const LoginScreen(),
       },
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../custom_field/text_filed.dart';
+import '../home_screen/home_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   static const String routeName = "RegisterScreen";
@@ -27,6 +28,7 @@ class RegisterScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomField(
@@ -55,6 +57,12 @@ class RegisterScreen extends StatelessWidget {
                       if(value == null || value.isEmpty){
                         return "E-mail is required" ;
                       }
+                      bool emailValid =
+                      RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(value);
+                      if(!emailValid){
+                        return 'PLease Enter Valid Email' ;
+                      }
                       return null ;
                     },
                   ),
@@ -62,13 +70,16 @@ class RegisterScreen extends StatelessWidget {
                   CustomField(
                     controller: passwordController,
                     text: 'Password',
-                    icon: Icons.password_rounded,
+                    icon: Icons.remove_red_eye,
                     hint: 'Enter Your Password',
                     type: TextInputType.visiblePassword,
                     action: TextInputAction.done,
                     validator:(value){
                       if(value == null || value.isEmpty){
                         return "Password is required" ;
+                      }
+                      if(value.length<6){
+                        return "Password Should Be At Least 6 Chars" ;
                       }
                       return null ;
                     },
@@ -78,7 +89,7 @@ class RegisterScreen extends StatelessWidget {
                     password: true,
                     controller: confirmPassController,
                     text: 'Confirmation Password',
-                    icon: Icons.password_rounded,
+                    icon: Icons.remove_red_eye,
                     hint: 'Enter Your Password',
                     type: TextInputType.visiblePassword,
                     action: TextInputAction.done,
@@ -86,8 +97,30 @@ class RegisterScreen extends StatelessWidget {
                       if(value == null || value.isEmpty){
                         return "Confirmation Password is required" ;
                       }
+                      if(value != passwordController.value){
+                        return "Password Doesn't Match" ;
+                      }
                       return null ;
                     },
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: (){
+                      Navigator.of(context).pushNamed(HomeScreen.routeName);
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orangeAccent,
+                        shape: ContinuousRectangleBorder(
+                            borderRadius: BorderRadius.circular(50)
+                        )
+                    ),
+                    child: const Text("Register",
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ],
               ),

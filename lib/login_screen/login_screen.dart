@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../custom_field/text_filed.dart';
 import '../home_screen/home_screen.dart';
+import '../register_screen/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   var nameController = TextEditingController();
@@ -22,12 +23,11 @@ class LoginScreen extends StatelessWidget {
           backgroundColor: Colors.transparent,
           body: Padding(
             padding: const EdgeInsets.all(10),
-            child: Expanded(
+            child: Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Spacer(),
                   const Text("Welcome To OutBye",
                     style: TextStyle(
                       fontSize: 24,
@@ -41,6 +41,7 @@ class LoginScreen extends StatelessWidget {
                         fontSize: 18,
                         fontWeight: FontWeight.w600
                     ),
+                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 50),
                   CustomField(
@@ -62,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                     controller: passwordController,
                     text: 'Password',
                     password: true,
-                    icon: Icons.password_rounded,
+                    icon: Icons.remove_red_eye,
                     hint: 'Enter Your Password',
                     type: TextInputType.visiblePassword,
                     action: TextInputAction.done,
@@ -73,9 +74,21 @@ class LoginScreen extends StatelessWidget {
                       return null ;
                     },
                   ),
+                  const SizedBox(height: 5),
+                  GestureDetector(
+                    onTap: (){},
+                    child:  const Text("Forget Password ?",
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: (){
-                      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                      Navigator.of(context).pushNamed(HomeScreen.routeName);
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.orangeAccent,
@@ -91,7 +104,19 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Spacer(),
+                  const SizedBox(height: 50),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).pushNamed(RegisterScreen.routeName);
+                    },
+                    child:  const Text("Don't have an account? Create Account",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

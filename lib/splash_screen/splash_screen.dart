@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../login_screen.dart';
+import '../login_screen/login_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String routeName = "splash" ;
@@ -22,7 +22,7 @@ class SplashScreen extends StatelessWidget {
         });
     var mediaQuery = MediaQuery.of(context).size ;
     return Scaffold(
-      body: Image.asset("assets/images/splash.png",
+      body: Image.asset("assets/images/Color_Mat11te_1.gif",
         width: mediaQuery.width,
         height: mediaQuery.height,
         fit: BoxFit.cover,

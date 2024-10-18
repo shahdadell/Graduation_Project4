@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(
-        const Duration(seconds: 3),
+        const Duration(seconds: 5),
             (){
           Navigator.pushReplacement(
             context,
@@ -22,7 +22,7 @@ class SplashScreen extends StatelessWidget {
         });
     var mediaQuery = MediaQuery.of(context).size ;
     return Scaffold(
-      body: Image.asset("assets/images/Color_Mat11te_1.gif",
+      body: Image.asset("assets/images/copy.gif",
         width: mediaQuery.width,
         height: mediaQuery.height,
         fit: BoxFit.cover,

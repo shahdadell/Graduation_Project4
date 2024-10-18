@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
+import '../login_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String routeName = "splash" ;
@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) {
-                return const HomeScreen();
+                return LoginScreen();
               },
             ),
           );

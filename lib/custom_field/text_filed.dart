@@ -47,7 +47,7 @@ class CustomField extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
           borderSide: const BorderSide(
-            width: 2,
+            width: 1.5,
             color: Colors.black,
           ),
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'custom_field/text_filed.dart';
+import '../custom_field/text_filed.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = "HomeScreen" ;
@@ -30,14 +29,14 @@ class LoginScreen extends StatelessWidget {
                     fontSize: 24,
                     fontWeight: FontWeight.bold
                   ),
+                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 50),
                 const Text("Please sign in with your email",
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 20),
                 const Text("User Name",

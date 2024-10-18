@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/splash_screen/splash_screen.dart';
-import 'login_screen.dart';
+import '../login_screen/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
